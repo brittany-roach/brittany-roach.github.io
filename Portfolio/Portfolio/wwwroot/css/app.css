@@ -1,3 +1,7 @@
+html {
+    overflow: auto;
+}
+
 body {
     font-family: 'Varela Round', arial, sans-serif;
     padding: 100px, 100px, 100px, 0px;
@@ -30,8 +34,43 @@ body {
     border-bottom: 2px solid;
 }
 
+.text-description {
+    font-size: 13px;
+    color: rgb(119, 119, 119);
+}
+
 .img-square {
     height: 250px;
     width: 250px;
     object-fit: cover;
+}
+
+.img-square-sm {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.carousel {
+    margin-bottom: 120px;
+}
+
+.carousel-item>img {
+    height: 480px;
+    object-fit: cover;
+}
+
+.carousel-indicators {
+    bottom: -120px;
+}
+
+.img-indicator {
+    height: 70px !important;
+    width: 120px !important;
+}
+
+.img-indicator>img {
+    background-color: transparent !important;
+    height: 70px !important;
+    width: 120px !important;
 }

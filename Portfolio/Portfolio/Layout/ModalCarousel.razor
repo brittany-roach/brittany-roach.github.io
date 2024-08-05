@@ -1,0 +1,64 @@
+﻿@page "/image-carousel-modal"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@inject IJSRuntime JSRuntime
+
+@code {
+    [Parameter]
+    public List<(string ImagePath, string Description)> Images { get; set; } = [];
+
+    private bool showModal = false;
+    private int currentIndex = 0;
+
+    private void ToggleModal(int index = 0)
+    {
+        currentIndex = index;
+        showModal = !showModal;
+        JSRuntime.InvokeVoidAsync("setHtmlStyle", "overflow", showModal ? "hidden" : "auto");
+    }
+}
+
+<div class="row justify-content-center g-3">
+    @foreach (var image in Images)
+    {
+        <div class="col-auto" @onclick="() => ToggleModal(Images.IndexOf(image))" style="cursor: pointer;">
+            <img src="@image.ImagePath" alt="@image.Description" class="img-fluid img-square-sm" />
+        </div>
+    }
+</div>
+
+@if (showModal)
+{
+    <div class="modal fade show d-block p-0" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-fullscreen" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-body p-0 align-content-center">
+                    <div id="carouselArtWork" class="carousel slide m-0 carousel-fade">
+                        <div class="carousel-inner">
+                            @foreach (var image in Images)
+                            {
+                                <div class="carousel-item @(currentIndex == Images.IndexOf(image) ? "active" : "") image-container">
+                                    <img src="@image.ImagePath" alt="@image.Description" class="img-fluid image h-100" @onclick="() => ToggleModal()">
+                                    <div class="image-description-container w-100 bg-dark bg-opacity-75 m-0">
+                                        <p class="image-description text-white m-0 p-4">@image.Description</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselArtWork" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselArtWork" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-bs-theme="dark">
+            <button type="button" class="btn-close position-absolute top-0 end-0 mt-lg-4 me-lg-5 m-2" style="z-index: 2;" aria-label="Close" @onclick="() => ToggleModal()"></button>
+        </div>
+    </div>
+}

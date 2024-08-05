@@ -2,4 +2,18 @@
 
 <PageTitle>Art Work - Brittant Roach Design</PageTitle>
 
-<h1>Art Work</h1>
+<div class="container text-center my-5 py-4">
+    <div class="row justify-content-center">
+        <ModalCarousel Images="Images" />
+    </div>
+</div>
+
+@code {
+    private List<(string ImagePath, string Description)> Images { get; set; } = 
+    [
+        ("images/artwork/drawing_of_picture.jpg", "Hand Rendering - re-creation of magazine photo"),
+        ("images/artwork/textbook_drawing.jpg", "Hand Rendering - re-creation of textbook photo. (Magic Marker- Richard McGarry & Greg Madsen)"),
+        ("images/artwork/magazine_sketch.jpg", "Hand Rendering - re-creation of magazine photo"),
+        ("images/artwork/kitchen_sketch.jpg", "Hand Drawing of kitchen (Designed by Brittany Roach)")
+    ];
+}
