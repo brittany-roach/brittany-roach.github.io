@@ -1,0 +1,79 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round:wght@400&display=swap');
+
+html {
+  overflow: auto;
+}
+
+body {
+  font-family: 'Varela Round', arial, sans-serif;
+  padding: 0;
+}
+
+.divider {
+  border-bottom-color: rgb(115, 115, 115);
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  padding-bottom: 0px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 19.2px;
+}
+
+.nav-link:not(.active):hover {
+  color: #E5C0FF !important;
+  border-bottom-color: rgb(115, 115, 115);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.nav-link.active {
+  color: rgb(17, 17, 17) !important;
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
+
+.text-description {
+  font-size: 13px;
+  color: rgb(119, 119, 119);
+}
+
+.img-square {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.img-square-sm {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.carousel {
+  margin-bottom: 120px;
+}
+
+.carousel-item > img {
+  height: 480px;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  bottom: -120px;
+}
+
+.img-indicator {
+  height: 70px !important;
+  width: 120px !important;
+}
+
+.img-indicator > img {
+  background-color: transparent !important;
+  height: 70px !important;
+  width: 120px !important;
+}
