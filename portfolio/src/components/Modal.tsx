@@ -41,12 +41,19 @@ const Modal = ({ imagePath, description, buttonText = "View Plan" }: ModalProps)
             
             {/* Close Button */}
             <button 
-              className="absolute top-4 right-4 text-white text-2xl hover:text-gray-300"
+              className="absolute top-5 right-5 bg-black opacity-75 text-white text-2xl hover:opacity-50 hover:text-gray-300 rounded-full w-10 h-10 flex items-center justify-center"
               onClick={toggleModal}
+              aria-label="Close modal"
             >
               ✕
             </button>
           </div>
+          
+          {/* Click outside to close */}
+          <div 
+            className="absolute inset-0 -z-10"
+            onClick={toggleModal}
+          />
         </div>
       )}
     </>
